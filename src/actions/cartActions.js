@@ -8,16 +8,24 @@ export const addToCart = (product) => dispatch => {
     })
   };
 
-  export const updateQty = (product) => dispatch => {
+  export const removeFromCart = (product) => dispatch => {
     dispatch({
-        type: actionType.UPDATE_QTY,
+        type: actionType.REMOVE_FROM_CART,
         payload: product
     })
   };
 
-  export const removeFromCart = (product) => dispatch => {
+
+  export const addToQty = (product) => dispatch => {
     dispatch({
-        type: actionType.REMOVE_FROM_CART,
+        type: actionType.ADD_TO_QTY,
+        payload: product
+    })
+  };
+
+  export const subtractFromQty = (product) => dispatch => {
+    dispatch({
+        type: actionType.SUBTRACT_FROM_QTY,
         payload: product
     })
   };

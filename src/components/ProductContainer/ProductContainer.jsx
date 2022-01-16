@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import {
   addToCart,
   removeFromCart,
-  updateQty,
+  addToQty,
+  subtractFromQty,
 } from "../../actions/cartActions";
 
 const StyledProductContainer = styled.div`
@@ -34,14 +35,21 @@ const productList = [
   },
 ];
 
-const ProductContainer = ({ addToCart, removeFromCart, updateQty, cart }) => {
+const ProductContainer = ({
+  addToCart,
+  removeFromCart,
+  cart,
+  addToQty,
+  subtractFromQty,
+}) => {
   return (
     <StyledProductContainer>
       {productList.length > 0 &&
         productList.map(({ title, qty, price, id }, idx) => (
           <ProductItem
             addToCart={addToCart}
-            updateQty={updateQty}
+            addToQty={addToQty}
+            subtractFromQty={subtractFromQty}
             removeFromCart={removeFromCart}
             title={title}
             id={id}
@@ -62,5 +70,6 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   addToCart,
   removeFromCart,
-  updateQty,
+  addToQty,
+  subtractFromQty,
 })(ProductContainer);
