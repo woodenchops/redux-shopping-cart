@@ -11,8 +11,21 @@ const cartReducer = (state = initialState, action) => {
                 payload
             ]
 
-        case actionType.UPDATE_QTY: {
-            const updatedState = [...payload];
+        case actionType.ADD_TO_QTY: {
+            const updatedState = state.map((product) => {
+                return product.id === payload.id
+                  ? { ...payload, qty: payload.qty + 1 }
+                  : product;
+              });
+            return updatedState;
+        }
+
+        case actionType.SUBTRACT_FROM_QTY: {
+            const updatedState = state.map((product) => {
+                return product.id === payload.id
+                  ? { ...payload, qty: payload.qty - 1 }
+                  : product;
+              }).filter((x) => x.qty !== 0);
             return updatedState;
         }
 
