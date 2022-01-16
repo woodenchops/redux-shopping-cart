@@ -24,11 +24,9 @@ const ProductItem = ({
   };
 
   const handleRemoveFromCart = (id) => {
-    const updatedState = cart.filter((product) => {
-      return product.id !== id;
-    });
+    const itemToRemove = cart.find((product) => product.id === id);
 
-    removeFromCart(updatedState);
+    removeFromCart(itemToRemove);
   };
 
   return (

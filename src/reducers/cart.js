@@ -25,12 +25,12 @@ const cartReducer = (state = initialState, action) => {
                 return product.id === payload.id
                   ? { ...payload, qty: payload.qty - 1 }
                   : product;
-              }).filter((x) => x.qty !== 0);
+              })
             return updatedState;
         }
 
         case actionType.REMOVE_FROM_CART: {
-            const updatedState = [...payload];
+            const updatedState = state.filter(x => x.id !== payload.id);
             return updatedState;
         }
 

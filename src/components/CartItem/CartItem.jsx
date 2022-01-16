@@ -20,6 +20,7 @@ const CartItem = ({
   id,
   addToQty,
   subtractFromQty,
+  removeFromCart,
 }) => {
   const onAddToQtyHandler = (id) => {
     const itemAlreadyInCart = cart.find((product) => product.id === id);
@@ -28,6 +29,12 @@ const CartItem = ({
 
   const onSubtractFromQtyHandler = (id) => {
     const itemAlreadyInCart = cart.find((product) => product.id === id);
+
+    if (itemAlreadyInCart.qty <= 1) {
+      removeFromCart(itemAlreadyInCart);
+      return;
+    }
+
     subtractFromQty(itemAlreadyInCart);
   };
 
