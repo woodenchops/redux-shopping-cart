@@ -11,6 +11,7 @@ import {
 const StyledProductContainer = styled.div`
   flex-grow: 1;
   margin-right: 1rem;
+  flex-basis: 300px;
 `;
 
 const productList = [
@@ -18,19 +19,16 @@ const productList = [
     id: 1,
     title: "Milk",
     price: 5,
-    qty: 0,
   },
   {
     id: 2,
     title: "Coffee",
     price: 3,
-    qty: 0,
   },
   {
     id: 3,
     title: "Bread",
     price: 10,
-    qty: 0,
   },
 ];
 
@@ -38,14 +36,13 @@ const ProductContainer = ({ addToCart, cart, addToQty, subtractFromQty }) => {
   return (
     <StyledProductContainer>
       {productList.length > 0 &&
-        productList.map(({ title, qty, price, id }, idx) => (
+        productList.map(({ title, price, id }, idx) => (
           <ProductItem
             addToCart={addToCart}
             addToQty={addToQty}
             subtractFromQty={subtractFromQty}
             title={title}
             id={id}
-            qty={qty}
             price={price}
             cart={cart}
             key={idx}
@@ -61,7 +58,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   addToCart,
-
   addToQty,
   subtractFromQty,
 })(ProductContainer);

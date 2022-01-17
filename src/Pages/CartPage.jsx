@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const StyledLayout = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const CartPage = () => {
