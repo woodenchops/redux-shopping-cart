@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import {
   addToCart,
-  removeFromCart,
   addToQty,
   subtractFromQty,
 } from "../../actions/cartActions";
@@ -35,13 +34,7 @@ const productList = [
   },
 ];
 
-const ProductContainer = ({
-  addToCart,
-  removeFromCart,
-  cart,
-  addToQty,
-  subtractFromQty,
-}) => {
+const ProductContainer = ({ addToCart, cart, addToQty, subtractFromQty }) => {
   return (
     <StyledProductContainer>
       {productList.length > 0 &&
@@ -50,7 +43,6 @@ const ProductContainer = ({
             addToCart={addToCart}
             addToQty={addToQty}
             subtractFromQty={subtractFromQty}
-            removeFromCart={removeFromCart}
             title={title}
             id={id}
             qty={qty}
@@ -69,7 +61,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   addToCart,
-  removeFromCart,
+
   addToQty,
   subtractFromQty,
 })(ProductContainer);

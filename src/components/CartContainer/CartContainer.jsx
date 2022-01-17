@@ -9,6 +9,7 @@ import {
   subtractFromQty,
   removeFromCart,
 } from "../../actions/cartActions";
+import Heading from "../../styledComponents/Heading/Heading";
 
 const StyledCartContainer = styled.aside`
   flex-basis: 400px;
@@ -21,7 +22,7 @@ const CartContainer = ({ cart, addToQty, subtractFromQty, removeFromCart }) => {
   return (
     <StyledCartContainer>
       <Card>
-        <h4>Cart</h4>
+        <Heading>Cart</Heading>
         {cart.length > 0 &&
           cart.map(({ title, qty, price, id }, idx) => {
             return (
@@ -39,6 +40,7 @@ const CartContainer = ({ cart, addToQty, subtractFromQty, removeFromCart }) => {
             );
           })}
         {cart.length > 0 && <p>Total: {calcTotal}</p>}
+        {cart.length > 0 && <p>Items in cart: {cart.length}</p>}
       </Card>
     </StyledCartContainer>
   );

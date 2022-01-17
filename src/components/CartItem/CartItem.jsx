@@ -38,6 +38,12 @@ const CartItem = ({
     subtractFromQty(itemAlreadyInCart);
   };
 
+  const handleRemoveFromCart = (id) => {
+    const itemToRemove = cart.find((product) => product.id === id);
+
+    removeFromCart(itemToRemove);
+  };
+
   return (
     <StyledCartItem>
       <StyledCartItemTitle>{title}</StyledCartItemTitle>
@@ -48,6 +54,9 @@ const CartItem = ({
         -
       </ActionButton>
       <ActionButton onClick={() => onAddToQtyHandler(id)}>+</ActionButton>
+      <ActionButton onClick={() => handleRemoveFromCart(id)}>
+        Remove
+      </ActionButton>
     </StyledCartItem>
   );
 };
