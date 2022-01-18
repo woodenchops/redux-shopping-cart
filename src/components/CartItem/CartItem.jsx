@@ -50,10 +50,12 @@ const CartItem = ({
       <p>Qty: {qty}</p>
       <p>Price: £{price}</p>
 
-      <ActionButton onClick={() => onSubtractFromQtyHandler(id)}>
+      <ActionButton icon onClick={() => onSubtractFromQtyHandler(id)}>
         -
       </ActionButton>
-      <ActionButton onClick={() => onAddToQtyHandler(id)}>+</ActionButton>
+      <ActionButton icon onClick={() => onAddToQtyHandler(id)}>
+        +
+      </ActionButton>
       <ActionButton onClick={() => handleRemoveFromCart(id)}>
         Remove
       </ActionButton>
