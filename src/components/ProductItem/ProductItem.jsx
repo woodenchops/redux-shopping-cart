@@ -2,7 +2,6 @@ import React, { memo } from "react";
 import ActionButton from "../../styledComponents/ActionButton/ActionButton";
 import Card from "../../styledComponents/Card/Card";
 import Heading from "../../styledComponents/Heading/Heading";
-import styled from "styled-components";
 
 const ProductItem = ({ cart, title, id, price, addToCart, addToQty }) => {
   const handleAddToCart = (id) => {
