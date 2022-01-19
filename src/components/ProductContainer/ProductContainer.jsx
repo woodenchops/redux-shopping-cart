@@ -53,7 +53,7 @@ const ProductContainer = ({ addToCart, cart, addToQty, subtractFromQty }) => {
 };
 
 const mapStateToProps = (state) => ({
-  cart: state.cart,
+  cart: state.cart.cart,
 });
 
 export default connect(mapStateToProps, {
