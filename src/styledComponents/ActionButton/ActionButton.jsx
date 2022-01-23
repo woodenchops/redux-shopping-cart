@@ -7,6 +7,7 @@ const StyledActionButton = styled.button`
   background-color: ${({ icon }) => (icon ? "#fff" : "navy")};
   border: ${({ icon }) => (icon ? "1px solid navy" : "none")};
   padding: 5px 10px;
+  margin: 0 2.5px;
   &:hover {
     cursor: pointer;
   }

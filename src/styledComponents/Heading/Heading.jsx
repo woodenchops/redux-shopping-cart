@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledHeading = styled.h3`
+const StyledHeading = styled.h2`
   margin: 0;
 `;
 

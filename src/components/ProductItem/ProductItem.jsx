@@ -15,13 +15,10 @@ const ProductItem = ({ cart, title, id, price, addToCart, addToQty }) => {
     addToCart({ title, qty: 1, price, id });
   };
 
-  const product = cart.find((x) => x.id === id);
-
   return (
     <Card>
       <Heading>{title}</Heading>
       <p>Price: £{price}</p>
-      <p>Qty: {(product && product.qty) || 0}</p>
       <ActionButton onClick={() => handleAddToCart(id)}>Add</ActionButton>
     </Card>
   );

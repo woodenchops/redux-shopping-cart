@@ -10,10 +10,13 @@ const StyledLayout = styled.div`
 
 const CartPage = () => {
   return (
-    <StyledLayout>
-      <ProductContainer />
-      <CartContainer />
-    </StyledLayout>
+    <main>
+      <h1>Shopping cart</h1>
+      <StyledLayout>
+        <ProductContainer />
+        <CartContainer />
+      </StyledLayout>
+    </main>
   );
 };
 

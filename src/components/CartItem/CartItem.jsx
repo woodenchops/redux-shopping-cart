@@ -10,12 +10,12 @@ const StyledCartItem = styled.div`
 
 const StyledCartItemTitle = styled.p`
   margin: 0;
+  font-weight: bold;
 `;
 
 const CartItem = ({
   title,
   qty,
-  price,
   cart,
   id,
   addToQty,
@@ -48,7 +48,6 @@ const CartItem = ({
     <StyledCartItem>
       <StyledCartItemTitle>{title}</StyledCartItemTitle>
       <p>Qty: {qty}</p>
-      <p>Price: £{price}</p>
 
       <ActionButton icon onClick={() => onSubtractFromQtyHandler(id)}>
         -
