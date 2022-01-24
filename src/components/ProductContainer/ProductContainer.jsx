@@ -1,12 +1,6 @@
 import React from "react";
 import ProductItem from "../ProductItem/ProductItem";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import {
-  addToCart,
-  addToQty,
-  subtractFromQty,
-} from "../../actions/cartActions";
 
 const StyledProductContainer = styled.div`
   flex-grow: 1;
@@ -32,32 +26,15 @@ const productList = [
   },
 ];
 
-const ProductContainer = ({ addToCart, cart, addToQty, subtractFromQty }) => {
+const ProductContainer = () => {
   return (
     <StyledProductContainer>
       {productList.length > 0 &&
         productList.map(({ title, price, id }, idx) => (
-          <ProductItem
-            addToCart={addToCart}
-            addToQty={addToQty}
-            subtractFromQty={subtractFromQty}
-            title={title}
-            id={id}
-            price={price}
-            cart={cart}
-            key={idx}
-          />
+          <ProductItem title={title} id={id} price={price} key={idx} />
         ))}
     </StyledProductContainer>
   );
 };
 
-const mapStateToProps = (state) => ({
-  cart: state.cart.cart,
-});
-
-export default connect(mapStateToProps, {
-  addToCart,
-  addToQty,
-  subtractFromQty,
-})(ProductContainer);
+export default ProductContainer;

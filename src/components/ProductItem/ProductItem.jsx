@@ -1,7 +1,9 @@
-import React, { memo } from "react";
+import React from "react";
 import ActionButton from "../../styledComponents/ActionButton/ActionButton";
 import Card from "../../styledComponents/Card/Card";
 import Heading from "../../styledComponents/Heading/Heading";
+import { connect } from "react-redux";
+import { addToCart, addToQty } from "../../actions/cartActions";
 
 const ProductItem = ({ cart, title, id, price, addToCart, addToQty }) => {
   const handleAddToCart = (id) => {
@@ -24,4 +26,11 @@ const ProductItem = ({ cart, title, id, price, addToCart, addToQty }) => {
   );
 };
 
-export default memo(ProductItem);
+const mapStateToProps = (state) => ({
+  cart: state.cart.cart,
+});
+
+export default connect(mapStateToProps, {
+  addToCart,
+  addToQty,
+})(ProductItem);
