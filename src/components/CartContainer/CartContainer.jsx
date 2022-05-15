@@ -4,11 +4,7 @@ import styled from "styled-components";
 import Card from "../../styledComponents/Card/Card";
 import CartItem from "../CartItem/CartItem";
 import { connect } from "react-redux";
-import {
-  addToQty,
-  subtractFromQty,
-  removeFromCart,
-} from "../../actions/cartActions";
+import { addToCart, removeFromCart } from "../../actions/cartActions";
 import Heading from "../../styledComponents/Heading/Heading";
 
 const StyledCartContainer = styled.aside`
@@ -16,13 +12,7 @@ const StyledCartContainer = styled.aside`
   margin-left: 1rem;
 `;
 
-const CartContainer = ({
-  cart,
-  total,
-  addToQty,
-  subtractFromQty,
-  removeFromCart,
-}) => {
+const CartContainer = ({ cart, total, addToCart, removeFromCart }) => {
   return (
     <StyledCartContainer>
       <Card>
@@ -37,8 +27,7 @@ const CartContainer = ({
                 price={price}
                 key={idx}
                 cart={cart}
-                addToQty={addToQty}
-                subtractFromQty={subtractFromQty}
+                addToCart={addToCart}
                 removeFromCart={removeFromCart}
               />
             );
@@ -56,7 +45,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  addToQty,
-  subtractFromQty,
+  addToCart,
   removeFromCart,
 })(CartContainer);

@@ -13,35 +13,17 @@ const StyledCartItemTitle = styled.p`
   font-weight: bold;
 `;
 
-const CartItem = ({
-  title,
-  qty,
-  cart,
-  id,
-  addToQty,
-  subtractFromQty,
-  removeFromCart,
-}) => {
+const CartItem = ({ title, qty, id, price, removeFromCart, addToCart }) => {
   const onAddToQtyHandler = (id) => {
-    const itemAlreadyInCart = cart.find((product) => product.id === id);
-    addToQty(itemAlreadyInCart);
+    addToCart({ title, qty: 1, price, id });
   };
 
   const onSubtractFromQtyHandler = (id) => {
-    const itemAlreadyInCart = cart.find((product) => product.id === id);
-
-    if (itemAlreadyInCart.qty <= 1) {
-      removeFromCart(itemAlreadyInCart);
-      return;
-    }
-
-    subtractFromQty(itemAlreadyInCart);
+    removeFromCart({ id });
   };
 
   const handleRemoveFromCart = (id) => {
-    const itemToRemove = cart.find((product) => product.id === id);
-
-    removeFromCart(itemToRemove);
+    removeFromCart({ id, all: true });
   };
 
   return (

@@ -5,15 +5,8 @@ import Heading from "../../styledComponents/Heading/Heading";
 import { connect } from "react-redux";
 import { addToCart, addToQty } from "../../actions/cartActions";
 
-const ProductItem = ({ cart, title, id, price, addToCart, addToQty }) => {
+const ProductItem = ({ title, id, price, addToCart }) => {
   const handleAddToCart = (id) => {
-    const itemAlreadyInCart = cart.find((product) => product.id === id);
-
-    if (itemAlreadyInCart) {
-      addToQty(itemAlreadyInCart);
-      return;
-    }
-
     addToCart({ title, qty: 1, price, id });
   };
 
@@ -26,11 +19,7 @@ const ProductItem = ({ cart, title, id, price, addToCart, addToQty }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  cart: state.cart.cart,
-});
-
-export default connect(mapStateToProps, {
+export default connect(null, {
   addToCart,
   addToQty,
 })(ProductItem);
