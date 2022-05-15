@@ -21,7 +21,7 @@ const cartReducer = (state = initialState, action) => {
         } else {
             updatedState = state.cart.map((product) => {
                 return product.id === payload.id
-                  ? { ...payload, qty: product.qty ? product.qty + 1 : 1 }
+                  ? { ...payload, qty: product.qty + 1 }
                   : product;
               });
         }
