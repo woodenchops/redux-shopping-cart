@@ -15,7 +15,7 @@ const StyledCartItemTitle = styled.p`
 
 const CartItem = ({ title, qty, id, price, removeFromCart, addToCart }) => {
   const onAddToQtyHandler = (id) => {
-    addToCart({ title, qty: 1, price, id });
+    addToCart({ title, price, id });
   };
 
   const onSubtractFromQtyHandler = (id) => {
@@ -23,7 +23,7 @@ const CartItem = ({ title, qty, id, price, removeFromCart, addToCart }) => {
   };
 
   const handleRemoveFromCart = (id) => {
-    removeFromCart({ id, all: true });
+    removeFromCart({ id, allInstances: true });
   };
 
   return (

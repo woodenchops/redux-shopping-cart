@@ -16,7 +16,7 @@ const cartReducer = (state = initialState, action) => {
         let updatedState;
 
         if(!itemAlreadyInCart) {
-            updatedState = [...state.cart, payload];
+            updatedState = [...state.cart, {...payload, qty: 1}];
 
         } else {
             updatedState = state.cart.map((product) => {
@@ -41,12 +41,12 @@ const cartReducer = (state = initialState, action) => {
 
             let updatedState;
 
-            if(itemInCart.qty <= 1 || payload.all) {
+            if(itemInCart.qty <= 1 || payload.allInstances) {
                 updatedState = state.cart.filter(x => x.id !== payload.id);
             } else {
                 updatedState = state.cart.map((product) => {
                 return product.id === payload.id
-                  ? { id: payload.id, title: product.title, price: product.price, qty: product.qty - 1 }
+                  ? { ...product, qty: product.qty - 1 }
                   : product;
               })
             }

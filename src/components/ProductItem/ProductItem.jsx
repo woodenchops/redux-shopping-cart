@@ -7,7 +7,7 @@ import { addToCart, addToQty } from "../../actions/cartActions";
 
 const ProductItem = ({ title, id, price, addToCart }) => {
   const handleAddToCart = (id) => {
-    addToCart({ title, qty: 1, price, id });
+    addToCart({ title, price, id });
   };
 
   return (
